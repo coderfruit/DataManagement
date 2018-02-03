@@ -45,7 +45,7 @@ public class ElectricAlertInfo {
 	private Date updateTime;
 
 	@Id
-//	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return id;
 	}
