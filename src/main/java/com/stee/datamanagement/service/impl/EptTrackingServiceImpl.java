@@ -52,17 +52,17 @@ public class EptTrackingServiceImpl implements IEptTrackingService {
         List<DeviceAlarmsEntity> electricAlertList=new ArrayList<>(deviceDataList.size());
 
         deviceDataList.forEach(deviceDataEntity -> {
-            if ("EnergyUsage".equals(deviceDataEntity.getDataType())){
+            if (1==deviceDataEntity.getDataType()){
                 compare(usageThresholds,deviceDataEntity,usageAlertList);
-            }else if ("Current".equals(deviceDataEntity.getDataType())){
+            }else if (3==deviceDataEntity.getDataType()){
                 compare(currentThresholds,deviceDataEntity,electricAlertList);
-            }else if ("Voltage".equals(deviceDataEntity.getDataType())){
+            }else if (4==deviceDataEntity.getDataType()){
                 compare(voltageThresholds,deviceDataEntity,electricAlertList);
-            }else if ("ActivePower".equals(deviceDataEntity.getDataType())){
+            }else if (5==deviceDataEntity.getDataType()){
                 compare(activePowerThresholds,deviceDataEntity,electricAlertList);
-            }else if ("ReactivePower".equals(deviceDataEntity.getDataType())){
+            }else if (6==deviceDataEntity.getDataType()){
                 compare(reactivePowerThresholds,deviceDataEntity,electricAlertList);
-            }else if ("ApparentPower".equals(deviceDataEntity.getDataType())){
+            }else if (9==deviceDataEntity.getDataType()){
                 compare(apparentPowerThresholds,deviceDataEntity,electricAlertList);
             }
         });
