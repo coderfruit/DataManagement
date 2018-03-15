@@ -21,7 +21,7 @@ public class AlertToLFMServiceImpl implements IAlertToLFMService {
     private String usageEvent;
 
 
-    @Override
+    @Overridd
     public void saveAndAlertUsage(List<DeviceAlarmsEntity> info) {
         String response=restTemplate.postForObject(urlForLFM+usageEvent, info, String.class);
     }
