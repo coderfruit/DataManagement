@@ -100,7 +100,8 @@ public class EptTrackingServiceImpl implements IEptTrackingService {
                     AlertList.add(deviceAlarm);
                 }
             }else{
-                if (deviceDataEntity.getData()==alarmThreshold.getThresholdValue()){
+                int compare = deviceDataEntity.getData().compareTo(alarmThreshold.getThresholdValue());
+                if (0==compare){
                     DeviceAlarmsEntity deviceAlarm = createDeviceAlarm(new Date(),alarmThreshold.getDescription(),alarmThreshold.getThresholdLevel(),
                             deviceDataEntity.getDeviceId());
                     AlertList.add(deviceAlarm);
