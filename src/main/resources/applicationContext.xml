@@ -20,9 +20,9 @@
 
 	<bean id = "dataSource" class = "com.alibaba.druid.pool.DruidDataSource">
 		<property name="driverClassName" value="org.postgresql.Driver"/>
-		<property name="url" value="jdbc:postgresql://192.168.0.230:5432/streetlamp"/>
+		<property name="url" value="jdbc:postgresql://192.168.0.98:5432/streetlight"/>
 		<property name="username" value="postgres"/>
-		<property name="password" value="123456"/>
+		<property name="password" value="postgres"/>
 		
 		<property name="maxActive" value="20" />
 	    <property name="initialSize" value="1" />

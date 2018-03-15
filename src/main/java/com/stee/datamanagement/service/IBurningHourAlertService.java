@@ -1,6 +1,6 @@
 package com.stee.datamanagement.service;
 
-import com.stee.sel.lfm.BurningHourAlert;
+import com.stee.datamanagement.entity.DeviceAlarmsEntity;
 import com.stee.datamanagement.entity.QueryBean;
 import org.springframework.data.domain.Page;
 
@@ -26,7 +26,7 @@ import org.springframework.data.domain.Page;
  */
 public interface IBurningHourAlertService {
 
-	Page<BurningHourAlert> getAlertPage(QueryBean query, Integer pageNo, Integer pageSize, String direction);
+	Page<DeviceAlarmsEntity> getAlertPage(QueryBean query, Integer pageNo, Integer pageSize, String direction);
 
     void computeBurningHourAlert();
 }

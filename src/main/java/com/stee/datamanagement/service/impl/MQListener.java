@@ -1,8 +1,9 @@
-package com.stee.datamanagement.service;
+package com.stee.datamanagement.service.impl;
 
-import com.stee.sel.common.ResultData;
-import com.stee.sel.lfm.UsageAlertInfo;
-import org.springframework.data.domain.Page;
+import com.stee.datamanagement.service.IEptTrackingService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.annotation.JmsListener;
+import org.springframework.stereotype.Service;
 
 /* Copyright (C) 2016, ST Electronics Info-Comm Systems PTE. LTD
  * All rights reserved.
@@ -14,10 +15,10 @@ import org.springframework.data.domain.Page;
  * the contract or license agreement with ST Electronics Info-Comm Systems PTE. LTD.
  *
  * Project Name : STL_EPT
- * File Name    : IUsageAlertService.java
+ * File Name    : MQListener.java
  * Package Name : com.stee.ept.service
  * Author       : chenshaoyin
- * Created      : 2016年12月1日 ---- 下午3:55:08
+ * Created      : 2016年12月13日 ---- 下午2:33:40
  *
  * <p> History : <br><br>
  *
@@ -25,14 +26,20 @@ import org.springframework.data.domain.Page;
  * --------------------------------------------------------------------------------
  *  
  */
-public interface IUsageAlertService {
+@Service
+public class MQListener {
 	
-	public Page<UsageAlertInfo> getUsageAlertInfo(String id, int start, int end, int page, int size);
-
-	public ResultData<UsageAlertInfo> getUsageAlertInfoByPer(int page, int size, int beginPer, int endPer);
-
-	public ResultData<UsageAlertInfo> getUsageAlertInfoByChar(int page, int size, String check);
-	
-	
+//	@Autowired
+//	private IEptTrackingService trackingService;
+//
+//	@JmsListener(destination = "rolling.status")
+//	public void PollingListener(boolean flag){
+//		if(flag){
+//			System.out.println("starting......");
+//			trackingService.getAndTracking();
+//		}else{
+//			System.out.println("waiting......");
+//		}
+//	}
 
 }

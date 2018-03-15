@@ -1,10 +1,15 @@
 package com.stee.datamanagement.controller;
 
 import com.stee.datamanagement.service.IBurningHourAlertService;
+import com.stee.datamanagement.service.impl.EptTrackingServiceImpl;
+import com.stee.sel.report.DeviceDataEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /* Copyright (C) 2016, ST Electronics Info-Comm Systems PTE. LTD
  * All rights reserved.
@@ -27,16 +32,20 @@ import org.springframework.web.bind.annotation.RestController;
  *  
  */
 @RestController
-@RequestMapping(value = "/burninghour/alert")
-public class BurningHourAlertController {
+@RequestMapping(value = "/ept")
+public class EptTrackingController {
 	@Autowired
-	IBurningHourAlertService service;
+	private EptTrackingServiceImpl service;
 
-	@JmsListener(destination = "rolling.status")
-	public void receiveMsg (boolean flag) {
-		if (flag) {
-			service.computeBurningHourAlert();
-		}
+
+	/**
+	 * 将STL_Interface传过来的数据进行入库，并对energy usage和electric parameter进行判断，
+	 * 是否需要进行报警，如需报警，将报警信息发送给STL_Alarm模块
+	 * @param deviceDataList
+	 */
+    @RequestMapping(path = "/tracking",method = RequestMethod.POST)
+	public void receiveMsg (List<DeviceDataEntity> deviceDataList) {
+			service.getAndTracking(deviceDataList);
 	}
 
 }
