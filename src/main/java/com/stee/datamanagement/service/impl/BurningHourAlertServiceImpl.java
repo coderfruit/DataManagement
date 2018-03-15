@@ -88,11 +88,11 @@ public class BurningHourAlertServiceImpl implements IBurningHourAlertService {
                 DeviceModelEntity lifetimeConfig = deviceModelDao.findByDeviceModelId(moduleId);
                 Integer lifetime = lifetimeConfig.getLifeTime();
                 //这个地方dataType暂定为burningHour
-                List<AlarmThreshold> thresholds = alarmThresholdRepository.findByDataType("burningHour");
+                List<AlarmThreshold> thresholds = alarmThresholdRepository.findByDataType("BurningHour");
                 double percent = (double) burningHour / (double) lifetime;
                 NumberFormat numberFormat = NumberFormat.getInstance();
                 numberFormat.setMaximumFractionDigits(0);
-                Integer ratio = Integer.valueOf(numberFormat.format(percent * 100));
+				Double ratio = Double.valueOf(numberFormat.format(percent * 100));
                 if (ratio>thresholds.get(0).getThresholdValue()){
                     //给DeviceAlarms的属性赋值,未完成
 					burningHourAlertSet.setSource(lampInfo.getDeviceId());
