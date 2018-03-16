@@ -1,8 +1,6 @@
 package com.stee.datamanagement.service.impl;
 
 import com.stee.datamanagement.entity.DeviceAlarmsEntity;
-import com.stee.datamanagement.entity.ElectricAlertInfo;
-import com.stee.datamanagement.entity.UsageAlertInfo;
 import com.stee.datamanagement.repository.AlarmThresholdRepository;
 import com.stee.datamanagement.repository.DeviceDataEntityRepository;
 import com.stee.datamanagement.service.IAlertToLFMService;
