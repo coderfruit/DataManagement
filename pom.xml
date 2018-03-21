@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.stee</groupId>
-	<artifactId>STL_Datamanagement</artifactId>
+	<artifactId>STL_DataManagement</artifactId>
 	<version>2.0.0.1</version>
 	<packaging>jar</packaging>
 
