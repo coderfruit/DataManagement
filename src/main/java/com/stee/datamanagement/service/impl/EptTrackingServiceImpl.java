@@ -6,7 +6,6 @@ import com.stee.datamanagement.repository.DeviceDataEntityRepository;
 import com.stee.datamanagement.service.IAlertToLFMService;
 import com.stee.datamanagement.service.IEptTrackingService;
 import com.stee.sel.inventory.AlarmThreshold;
-import com.stee.sel.inventory.DeviceInfoEntity;
 import com.stee.sel.report.DeviceDataEntity;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class EptTrackingServiceImpl implements IEptTrackingService {
@@ -38,7 +36,7 @@ public class EptTrackingServiceImpl implements IEptTrackingService {
             throw new ServiceException("save deviceDataEntity failed !!! error message:"+e.getMessage());
         }
         //energy usage和electric parameter tracking
-        //查询所有阈值
+          //查询所有阈值
         List<AlarmThreshold> usageThresholds = thresholdInfoDao.findByDataType("EnergyUsage");
         List<AlarmThreshold> currentThresholds = thresholdInfoDao.findByDataType("Current");
         List<AlarmThreshold> voltageThresholds = thresholdInfoDao.findByDataType("Voltage");

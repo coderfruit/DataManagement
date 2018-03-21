@@ -1,8 +1,5 @@
 package com.stee.datamanagement.service.impl;
 
-import com.stee.datamanagement.service.IEptTrackingService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Service;
 
 /* Copyright (C) 2016, ST Electronics Info-Comm Systems PTE. LTD

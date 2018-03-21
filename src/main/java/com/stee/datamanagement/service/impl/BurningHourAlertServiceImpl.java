@@ -10,9 +10,6 @@ import com.stee.sel.inventory.DeviceInfoEntity;
 import com.stee.sel.inventory.DeviceModelEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
@@ -100,7 +97,7 @@ public class BurningHourAlertServiceImpl implements IBurningHourAlertService {
                     burningHourAlertSet.setSeverityLevel(thresholds.get(0).getThresholdLevel());
                     burningHourAlertSet.setDescription(thresholds.get(0).getDescription());
                     deviceAlarmsRepository.save(burningHourAlertSet);
-					// 通过websocket将报警信息推送给前端
+					// 通过websocket将报警信息推送给前端,目前这个功能前端还没做
 					Gson gson=new Gson();
 					template.convertAndSend("/datamanagement", gson.toJson(burningHourAlertSet));
                 }
