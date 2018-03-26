@@ -5,6 +5,7 @@ import com.stee.datamanagement.service.impl.EptTrackingServiceImpl;
 import com.stee.sel.report.DeviceDataEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,7 +45,7 @@ public class EptTrackingController {
 	 * @param deviceDataList
 	 */
     @RequestMapping(path = "/tracking",method = RequestMethod.POST)
-	public void receiveMsg (List<DeviceDataEntity> deviceDataList) {
+	public void receiveMsg (@RequestBody List<DeviceDataEntity> deviceDataList) {
 			service.getAndTracking(deviceDataList);
 	}
 
