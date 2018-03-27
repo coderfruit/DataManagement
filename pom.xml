@@ -5,7 +5,7 @@
 
 	<groupId>com.stee</groupId>
 	<artifactId>STL_DataManagement</artifactId>
-	<version>2.0.0.1</version>
+	<!--<version>2.0.0.1</version>-->
 	<packaging>jar</packaging>
 
 	<name>datamanagement</name>
@@ -133,6 +133,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>STL_DataManagement</finalName>
 	</build>
 
 
